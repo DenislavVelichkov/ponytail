@@ -16,8 +16,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/stars/DietrichGebert/ponytail?style=flat-square&color=111111&label=stars" alt="Stars">
-  <img src="https://img.shields.io/github/v/release/DietrichGebert/ponytail?style=flat-square&color=111111&label=release" alt="Release">
+  <img src="https://img.shields.io/github/stars/DenislavVelichkov/ponytail?style=flat-square&color=111111&label=stars" alt="Stars">
+  <img src="https://img.shields.io/github/v/release/DenislavVelichkov/ponytail?style=flat-square&color=111111&label=release" alt="Release">
   <img src="https://img.shields.io/npm/v/@dietrichgebert/ponytail?style=flat-square&color=111111&label=npm" alt="npm">
   <img src="https://img.shields.io/badge/funciona%20con-15%20agentes-111111?style=flat-square" alt="Works with 15 agents">
   <img src="https://img.shields.io/badge/licencia-MIT-111111?style=flat-square" alt="MIT license">
@@ -119,7 +119,7 @@ Los plugins de Claude Code y Codex ejecutan dos pequeños lifecycle hooks de Nod
 ### Claude Code
 
 ```
-/plugin marketplace add DietrichGebert/ponytail
+/plugin marketplace add DenislavVelichkov/ponytail
 /plugin install ponytail@ponytail
 ```
 
@@ -128,7 +128,7 @@ La app de escritorio no tiene el comando `/plugin`. Instálala desde la interfaz
 ### Codex
 
 ```bash
-codex plugin marketplace add DietrichGebert/ponytail
+codex plugin marketplace add DenislavVelichkov/ponytail
 codex
 ```
 
@@ -139,14 +139,14 @@ Esta misma instalación cubre también la app de escritorio de Codex: reinicia l
 ### GitHub Copilot CLI
 
 ```bash
-copilot plugin marketplace add DietrichGebert/ponytail
+copilot plugin marketplace add DenislavVelichkov/ponytail
 copilot plugin install ponytail@ponytail
 ```
 
 En una sesión interactiva de Copilot CLI, usa los equivalentes con slash:
 
 ```
-/plugin marketplace add DietrichGebert/ponytail
+/plugin marketplace add DenislavVelichkov/ponytail
 /plugin install ponytail@ponytail
 ```
 
@@ -160,7 +160,7 @@ Copilot CLI agrupa los comandos del plugin bajo el nombre del plugin. Por ejempl
 ### Pi agent harness
 
 ```
-pi install git:github.com/DietrichGebert/ponytail
+pi install git:github.com/DenislavVelichkov/ponytail
 ```
 
 ### OpenCode
@@ -186,7 +186,7 @@ OpenCode 1 usa la clave vieja `plugin`: `{ "plugin": ["@dietrichgebert/ponytail"
 ### Gemini CLI
 
 ```bash
-gemini extensions install https://github.com/DietrichGebert/ponytail
+gemini extensions install https://github.com/DenislavVelichkov/ponytail
 ```
 
 Carga el ruleset como contexto permanente en cada sesión y registra los comandos `/ponytail`; los `skills/` también se incluyen, activados cuando una tarea los necesita.
@@ -196,7 +196,7 @@ Carga el ruleset como contexto permanente en cada sesión y registra los comando
 Google está renombrando Gemini CLI a Antigravity CLI (el binario `agy`); la misma extensión se instala ahí:
 
 ```bash
-agy plugin install https://github.com/DietrichGebert/ponytail
+agy plugin install https://github.com/DenislavVelichkov/ponytail
 ```
 
 Reutiliza el `gemini-extension.json` de este repo. Una diferencia: Antigravity convierte los comandos `/ponytail` en skills, así que los escribes en el chat (por ejemplo `/ponytail-review` como mensaje) en vez de seleccionarlos de un menú slash. Hasta que la migración se complete (alrededor del 18 de junio de 2026), `gemini extensions install` también funciona. Para usarlo como regla permanente, coloca el ruleset en `.agents/rules/`.
@@ -208,7 +208,7 @@ Lee `AGENTS.md` desde la raíz del proyecto, sin configuración. Copia [`AGENTS.
 ### Devin CLI
 
 ```bash
-devin plugins install DietrichGebert/ponytail
+devin plugins install DenislavVelichkov/ponytail
 ```
 
 Instala ponytail como plugin de Devin; los skills quedan disponibles como `/ponytail:ponytail`, `/ponytail:ponytail-review`, etc.
@@ -224,7 +224,7 @@ Instala ponytail como skill de OpenClaw desde ClawHub; los skills de review, aud
 ### Grok Build
 
 ```bash
-grok plugin install DietrichGebert/ponytail --trust
+grok plugin install DenislavVelichkov/ponytail --trust
 ```
 
 Habilita el plugin (está desactivado por defecto): `/plugins` → Plugins → Space en `ponytail`, o en `~/.grok/config.toml`:
@@ -324,8 +324,8 @@ Ya sabes exactamente por qué.
 
 <a href="https://www.star-history.com/dietrichgebert/ponytail#history">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=DietrichGebert/ponytail&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=DietrichGebert/ponytail&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=DietrichGebert/ponytail&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=DenislavVelichkov/ponytail&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=DenislavVelichkov/ponytail&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=DenislavVelichkov/ponytail&type=Date" />
  </picture>
 </a>

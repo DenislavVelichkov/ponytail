@@ -16,8 +16,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/stars/DietrichGebert/ponytail?style=flat-square&color=111111&label=stars" alt="Stars">
-  <img src="https://img.shields.io/github/v/release/DietrichGebert/ponytail?style=flat-square&color=111111&label=release" alt="Release">
+  <img src="https://img.shields.io/github/stars/DenislavVelichkov/ponytail?style=flat-square&color=111111&label=stars" alt="Stars">
+  <img src="https://img.shields.io/github/v/release/DenislavVelichkov/ponytail?style=flat-square&color=111111&label=release" alt="Release">
   <img src="https://img.shields.io/npm/v/@dietrichgebert/ponytail?style=flat-square&color=111111&label=npm" alt="npm">
   <img src="https://img.shields.io/badge/works%20with-15%20agents-111111?style=flat-square" alt="Works with 15 agents">
   <img src="https://img.shields.io/badge/license-MIT-111111?style=flat-square" alt="MIT license">
@@ -119,7 +119,7 @@ Claude Code와 Codex 플러그인은 자그마한 Node.js 라이프사이클 훅
 ### Claude Code
 
 ```
-/plugin marketplace add DietrichGebert/ponytail
+/plugin marketplace add DenislavVelichkov/ponytail
 ```
 ```
 /plugin install ponytail@ponytail
@@ -131,7 +131,7 @@ Claude Code와 Codex 플러그인은 자그마한 Node.js 라이프사이클 훅
 ### Codex
 
 ```bash
-codex plugin marketplace add DietrichGebert/ponytail
+codex plugin marketplace add DenislavVelichkov/ponytail
 codex
 ```
 
@@ -143,14 +143,14 @@ codex
 ### GitHub Copilot CLI
 
 ```bash
-copilot plugin marketplace add DietrichGebert/ponytail
+copilot plugin marketplace add DenislavVelichkov/ponytail
 copilot plugin install ponytail@ponytail
 ```
 
 대화형 Copilot CLI 세션에서는 슬래시 명령으로 똑같이 하면 된다:
 
 ```
-/plugin marketplace add DietrichGebert/ponytail
+/plugin marketplace add DenislavVelichkov/ponytail
 /plugin install ponytail@ponytail
 ```
 
@@ -164,7 +164,7 @@ Copilot CLI는 플러그인 명령에 그 이름을 네임스페이스로 붙인
 ### Pi agent harness
 
 ```
-pi install git:github.com/DietrichGebert/ponytail
+pi install git:github.com/DenislavVelichkov/ponytail
 ```
 
 ### OpenCode
@@ -190,7 +190,7 @@ OpenCode 1은 예전 `plugin` 키를 쓴다: `{ "plugin": ["@dietrichgebert/pony
 ### Gemini CLI
 
 ```bash
-gemini extensions install https://github.com/DietrichGebert/ponytail
+gemini extensions install https://github.com/DenislavVelichkov/ponytail
 ```
 
 매 세션 룰셋을 늘 켜진 컨텍스트로 불러오고 `/ponytail` 명령들을 등록한다. `skills/`도 함께 실리며, 작업에 필요할 때 켜진다.
@@ -201,7 +201,7 @@ Gemini 어댑터는 일부러 루트 `hooks/hooks.json`을 두지 않는다. Gem
 Google이 Gemini CLI를 Antigravity CLI(`agy` 바이너리)로 이름을 바꾸는 중인데, 같은 확장이 거기에도 설치된다:
 
 ```bash
-agy plugin install https://github.com/DietrichGebert/ponytail
+agy plugin install https://github.com/DenislavVelichkov/ponytail
 ```
 
 이 저장소의 `gemini-extension.json`을 그대로 재사용한다. 차이는 하나다. Antigravity는 `/ponytail` 명령들을 스킬로 바꿔 버려서, 슬래시 메뉴에서 고르는 대신 채팅에 직접 친다(예: `/ponytail-review`를 메시지로). 전환이 마무리될 때까지(2026년 6월 18일경)는 `gemini extensions install`도 여전히 먹힌다. 늘 켜진 규칙으로 돌리고 싶으면, 룰셋을 `.agents/rules/`에 넣으면 된다.
@@ -215,7 +215,7 @@ agy plugin install https://github.com/DietrichGebert/ponytail
 먼저 컬렉션을 라이브러리에 스테이징한 다음, 원하는 스킬을 더한다:
 
 ```bash
-swival skills add --global https://github.com/DietrichGebert/ponytail  # ~/.config/swival/library에 스테이징
+swival skills add --global https://github.com/DenislavVelichkov/ponytail  # ~/.config/swival/library에 스테이징
 swival skills add ponytail                                             # 이 프로젝트에 컬렉션 설치
 swival skills add --global ponytail                                    # 또는 모든 프로젝트에서 켜기
 ```
@@ -227,7 +227,7 @@ Swival도 프로젝트 루트의 `AGENTS.md`와 전역의 `~/.config/swival/AGEN
 ### Devin CLI
 
 ```bash
-devin plugins install DietrichGebert/ponytail
+devin plugins install DenislavVelichkov/ponytail
 ```
 
 ponytail을 Devin 플러그인으로 설치한다. 스킬은 `/ponytail:ponytail`, `/ponytail:ponytail-review` 등으로 쓸 수 있다.
@@ -243,7 +243,7 @@ ClawHub에서 ponytail을 OpenClaw 스킬로 설치한다. review, audit, debt, 
 ### Grok Build
 
 ```bash
-grok plugin install DietrichGebert/ponytail --trust
+grok plugin install DenislavVelichkov/ponytail --trust
 ```
 
 플러그인은 기본이 꺼져 있다. `/plugins` → Plugins에서 `ponytail`에 Space, 또는 `~/.grok/config.toml`:
@@ -341,8 +341,8 @@ OpenClaw 스킬 패키지(`.openclaw/skills/`)는 `skills/`에서 생성된다. 
 
 <a href="https://www.star-history.com/dietrichgebert/ponytail#history">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=DietrichGebert/ponytail&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=DietrichGebert/ponytail&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=DietrichGebert/ponytail&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=DenislavVelichkov/ponytail&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=DenislavVelichkov/ponytail&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=DenislavVelichkov/ponytail&type=Date" />
  </picture>
 </a>
