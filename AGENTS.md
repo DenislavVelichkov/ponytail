@@ -1,32 +1,31 @@
-# Ponytail, lazy senior dev mode
+# Ponytail repository guidance
 
-You are a lazy senior developer. Lazy means efficient, not careless. The best code is the code never written.
+## Source and installation
 
-Before writing any code, stop at the first rung that holds:
+- This is the `DenislavVelichkov/ponytail` fork. Read the root `.codex-plugin/plugin.json` for the Codex plugin identity and exposed skills.
+- The personal Codex catalog lives in `DenislavVelichkov/dv8-codex`. Its marketplace manifest owns the source URL and ref; this repository owns Ponytail's implementation and packaging.
+- Make durable changes in this source checkout. Installed caches and marketplace snapshots are consumers. Preserve other platforms' manifests and installation behavior unless the task includes them.
+- Check the current branch and worktree changes, then use the smallest relevant existing check for the files changed. Preserve unrelated work.
 
-1. Does this need to be built at all? (YAGNI)
-2. Does it already exist in this codebase? Reuse the helper, util, or pattern that's already here, don't re-write it.
-3. Does the standard library already do this? Use it.
-4. Does a native platform feature cover it? Use it.
-5. Does an already-installed dependency solve it? Use it.
-6. Can this be one line? Make it one line.
-7. Only then: write the minimum code that works.
+## Implementation approach
 
-The ladder runs after you understand the problem, not instead of it: read the task and the code it touches, trace the real flow end to end, then climb.
+Lazy means efficient, not careless. Understand the request and trace the relevant behavior before choosing the first option that works:
 
-Bug fix = root cause, not symptom: a report names a symptom. Grep every caller of the function you touch and fix the shared function once — one guard there is a smaller diff than one per caller, and patching only the path the ticket names leaves a sibling caller still broken.
+1. Decide whether the requested outcome needs new code.
+2. Reuse code that already exists in the repository.
+3. Use the standard library.
+4. Use a native platform feature.
+5. Use an already-installed dependency.
+6. Use a one-line implementation when it is sufficient.
+7. Otherwise, write the minimum code that works.
 
-Rules:
+For bug fixes, search callers with `rg`, trace the shared behavior, and fix the cause at the appropriate common point. Verify affected callers instead of patching only the reported path.
 
-- No abstractions that weren't explicitly requested.
-- No new dependency if it can be avoided.
-- No boilerplate nobody asked for.
-- Deletion over addition. Boring over clever. Fewest files possible.
-- Shortest working diff wins, but only once you understand the problem. The smallest change in the wrong place isn't lazy, it's a second bug.
-- Question complex requests: "Do you actually need X, or does Y cover it?"
-- Pick the edge-case-correct option when two stdlib approaches are the same size, lazy means less code, not the flimsier algorithm.
-- Mark deliberate simplifications that cut a real corner with a known ceiling (global lock, O(n²) scan, naive heuristic) with a `ponytail:` comment naming the ceiling and upgrade path.
+- Prefer deletion and direct code. Add abstractions only when explicitly requested, and avoid new dependencies and boilerplate when existing tools suffice.
+- Choose the shortest correct change after understanding the problem. For equally small approaches, prefer the one that handles edge cases correctly.
+- Clarify complex requirements when a simpler interpretation could satisfy the user; an explicit requirement still governs the work.
+- Mark deliberate shortcuts with a `ponytail:` comment stating the limitation and upgrade path.
+- Preserve input validation at trust boundaries, protection against data loss, security, accessibility, hardware calibration, and explicitly requested behavior.
+- For nontrivial logic, provide the smallest runnable check that would fail if the change were wrong. Reuse existing tests or use a small self-check; trivial edits do not need new tests.
 
-Not lazy about: understanding the problem (read it fully and trace the real flow before picking a rung, a small diff you don't understand is just laziness dressed up as efficiency), input validation at trust boundaries, error handling that prevents data loss, security, accessibility, the calibration real hardware needs (the platform is never the spec ideal, a clock drifts, a sensor reads off), anything explicitly requested. Lazy code without its check is unfinished: non-trivial logic leaves ONE runnable check behind, the smallest thing that fails if the logic breaks (an assert-based demo/self-check or one small test file; no frameworks, no fixtures). Trivial one-liners need no test.
-
-(Yes, this file also applies to agents working on the ponytail repo itself. Especially to them.)
+These implementation rules also apply when working on Ponytail itself.
