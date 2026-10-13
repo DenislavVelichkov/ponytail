@@ -68,6 +68,7 @@ test('qoder rules match AGENTS.md canonical body', () => {
   // Reuse the same logic as check-rule-copies.js: the .qoder copy must be
   // byte-identical to AGENTS.md minus the repo-self-application paragraph.
   const agents = fs.readFileSync(path.join(root, 'AGENTS.md'), 'utf8')
+    .split('\n\n## Fork maintenance')[0]
     .replace(/\r\n/g, '\n').trim();
   const canonical = agents.replace(/\n\n\(Yes, this file also applies[\s\S]*?\)$/, '').trim();
   const qoderCopy = fs.readFileSync(path.join(root, '.qoder', 'rules', 'ponytail.md'), 'utf8')
