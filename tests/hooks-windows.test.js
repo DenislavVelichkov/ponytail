@@ -136,7 +136,7 @@ test('Claude and Codex manifests point at their explicit hook configs', () => {
   for (const rel of HOST_PLUGIN_MANIFESTS) {
     const manifest = JSON.parse(fs.readFileSync(path.join(root, rel), 'utf8'));
     const isCodex = rel.startsWith('.codex-plugin/');
-    assert.equal(manifest.hooks, isCodex ? './hooks/codex-hooks.json' : `./${HOOKS_JSON}`, `${rel} must not rely on root hooks auto-discovery`);
+    assert.deepEqual(manifest.hooks, isCodex ? './hooks/codex-hooks.json' : [`./${HOOKS_JSON}`, './hooks/claude-band.json'], `${rel} must not rely on root hooks auto-discovery`);
     if (isCodex) {
       const actual = JSON.parse(fs.readFileSync(path.join(root, manifest.hooks), 'utf8'));
       const expected = JSON.parse(fs.readFileSync(path.join(root, HOOKS_JSON), 'utf8').replaceAll('CLAUDE_PLUGIN_ROOT', 'PLUGIN_ROOT'));
