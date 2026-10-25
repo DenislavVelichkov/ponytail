@@ -57,8 +57,9 @@ tested and fixed later. This is a report the user asked for, so give it in full.
   wrong result". No case, no finding.
 - Before calling code unused, grep the whole tree for it, including tests,
   fixtures, config, and string or dynamic references.
-- A shortcut marked with a `shortcut:` (or older `ponytail:`) comment that names its limit is a
-  decision, not a finding, unless the expected load already crosses it.
+- Respect a documented `shortcut:` or older `ponytail:` limit unless the
+  expected load crosses it or it violates correctness, security, data protection,
+  accessibility, or an explicit requirement. A comment does not waive those checks.
 - Propose the smallest fix that works. Prefer fixes that delete code. Never
   add layers, frameworks or config the problem does not need.
 - No style taste, no "consider", no vague worries.

@@ -39,5 +39,6 @@ End with `<N> markers, <M> with no trigger.` Nothing found: `No shortcut debt. C
 
 ## Boundaries
 
-Reads and reports only, changes nothing. To persist it, ask and it writes the
-ledger to a file (e.g. `PONYTAIL-DEBT.md`). One-shot.
+Reads and reports only. Save the ledger to a file only when the user requests
+it, using their path or `PONYTAIL-DEBT.md`. This one-shot report leaves the
+active Ponytail mode unchanged.
