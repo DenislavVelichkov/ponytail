@@ -1,18 +1,19 @@
 ---
 name: ponytail-help
 description: >
-  Quick reference for ponytail levels, skills and commands. One-shot display.
-  Use for /ponytail-help, "ponytail help", "how do I use ponytail".
+  Displays a quick reference for ponytail levels, skills, and commands.
+  One-shot display. Use for /ponytail-help, "ponytail help", "how do I use
+  ponytail". Not for benchmark savings (use ponytail-gain).
 ---
 
 # Ponytail Help
 
-Display this reference card when invoked. One-shot, do NOT change mode,
-write flag files, or persist anything.
+Display the sections from Levels through More verbatim when invoked.
+One-shot, do not change mode, write flag files, or persist anything.
 
 ## Levels
 
-| Level | Trigger | What change |
+| Level | Trigger | What changes |
 |-------|---------|-------------|
 | **Lite** | `/ponytail lite` | Build what was asked, name the smaller option in one line. |
 | **Full** | `/ponytail` | The smallest complete change, a check where the logic needs one, and a reply that names what was skipped and any risk. Default. |
@@ -31,18 +32,17 @@ Level sticks until changed or session end.
 | **ponytail-gain** | `/ponytail-gain` | Measured-impact scoreboard: less code, less cost, more speed. |
 | **ponytail-help** | `/ponytail-help` | This card. |
 
-In Codex CLI and the IDE extension, invoke skills with `$ponytail:ponytail`,
-`$ponytail:ponytail-review`, or `$ponytail:ponytail-help`. Claude Code and OpenCode use the
+In Codex CLI and the IDE extension, invoke any of the six skills as
+`$ponytail:<skill-name>`, for example `$ponytail:ponytail-review`. Claude Code and OpenCode use the
 slash-command forms above (OpenCode ships all six as slash commands).
 
 ## Deactivate
 
-Say "stop ponytail" or "normal mode". Resume anytime with `/ponytail`.
-`/ponytail off` also works.
+Say "stop ponytail", "normal mode" or `/ponytail off`. Resume anytime with `/ponytail`.
 
 ## Band (Claude Code)
 
-`/ponytail band` hides the band above the prompt, the same command brings it back.
+`/ponytail band` hides or shows the band above the prompt.
 `/ponytail band on` and `/ponytail band off` set it directly. The level stays.
 `/ponytail band import` adds your past Claude Code sessions (cost, agent time, tokens) to the board.
 
@@ -50,7 +50,7 @@ Say "stop ponytail" or "normal mode". Resume anytime with `/ponytail`.
 
 Default mode = `full`, auto-active every session. Change it:
 
-**Environment variable** (highest priority):
+**Environment variable**:
 ```bash
 export PONYTAIL_DEFAULT_MODE=ultra
 ```
@@ -67,9 +67,21 @@ Resolution: env var > config file > `full`.
 
 ## Update
 
-Enable auto-update once: open `/plugin`, go to Marketplaces, pick ponytail, Enable auto-update. Claude Code then pulls new versions at startup (run `/reload-plugins` when it prompts). Manual refresh: `/plugin marketplace update ponytail` then `/reload-plugins`.
+Enable auto-update once: open `/plugin`, go to Marketplaces, pick ponytail, Enable auto-update. Claude Code then pulls new versions at startup (run `/reload-plugins` when it prompts).
 
-If `/plugin` is not recognized, your Claude Code is out of date. Update it (`npm install -g @anthropic-ai/claude-code@latest`, or `brew upgrade claude-code`) and restart. Other hosts use their own update flow.
+Manual update: run `/plugin`, open ponytail on the Installed tab and choose
+Update now, or run `claude plugin update ponytail@<marketplace>` in your shell
+(`claude plugin list` shows that full name). Then run `/reload-plugins` and
+recheck the version with `claude plugin list`.
+`/plugin marketplace update ponytail` only refreshes the marketplace listing;
+if the version did not change, run the plugin update above.
+
+If `/plugin` is not recognized, first check for a non-interactive session
+(`claude -p`): `/plugin` does not run there, so use the `claude plugin` shell
+commands above. Otherwise check the version with `claude --version` and update
+Claude Code with the method you installed it with (`claude update` for the
+native install, `npm install -g @anthropic-ai/claude-code@latest` for npm,
+`brew upgrade claude-code` for Homebrew), then restart. Other hosts use their own update flow.
 
 ## More
 
