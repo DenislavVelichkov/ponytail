@@ -58,6 +58,9 @@ const debtSamples = [
   ['/*ponytail: block marker, no space */', true],
   ['/* ponytail: block opener, closed some lines below', true],
   ['prose that merely mentions ponytail: markers stays out of the ledger', false],
+  ['/** ponytail: jsdoc opener', true],
+  ['   * ponytail: jsdoc continuation', true],
+  ['* ponytail: markdown bullet stays out', false],
 ];
 
 test('every ponytail-debt copy greps #, // and /* markers but not prose', (t) => {

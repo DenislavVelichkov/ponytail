@@ -28,6 +28,9 @@ function frontmatterField(frontmatter, key) {
   const at = lines.findIndex((line) => line.startsWith(key + ':'));
   if (at === -1) return undefined;
   const value = lines[at].slice(key.length + 1).trim();
+  // Quoted scalar: Codex requires inline descriptions, so they arrive quoted.
+  if (value[0] === '"') return JSON.parse(value);
+  if (value[0] === "'") return value.slice(1, -1).replace(/''/g, "'");
   if (value[0] !== '>' && value[0] !== '|') return value;
 
   // Block scalar: `>` folds the lines into one, `|` keeps them. Indented lines
